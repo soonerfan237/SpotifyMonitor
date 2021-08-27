@@ -1,7 +1,6 @@
 import yaml
 
 def get_user_id():
-    #user_id = ""
     with open("configuration.yaml", 'r') as stream:
         try:
             user_id = yaml.safe_load(stream)["USER_ID"]

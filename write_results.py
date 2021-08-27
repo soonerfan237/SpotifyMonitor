@@ -1,8 +1,13 @@
 import datetime
+import os
 
-def write_results(spotify_playlist_songs):
+def write_results(spotify_playlist_songs, result_dir):
 
-    output_file = open(f"spotify_favorites_{datetime.date.today()}.txt", "w")
+    if not os.path.exists(result_dir):
+        os.makedirs(result_dir)
+
+    output_file = open(f"{result_dir}/spotify_favorites_{datetime.date.today()}.txt", "w")
+
     for song in spotify_playlist_songs:
         song_dict = {'artist_name': song["track"]["artists"][0]["name"],
                      'artist_id': song["track"]["artists"][0]["id"],
