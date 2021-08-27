@@ -1,5 +1,4 @@
 import datetime
-#import ast
 
 def write_results(spotify_playlist_songs):
 
@@ -17,6 +16,3 @@ def write_results(spotify_playlist_songs):
         output_file.writelines(str(song_dict) + '\n')
 
     output_file.close()
-
-    #read_file = open(f"spotify_favorites_{datetime.date.today()}.txt", "r")
-    #res = ast.literal_eval(read_file.readline())
