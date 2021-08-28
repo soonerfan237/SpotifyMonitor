@@ -3,7 +3,7 @@ import ast
 import glob
 
 def get_result_files(result_dir):
-    result_files = glob.glob(f"{result_dir}/spotify_favorites*.txt")
+    result_files = glob.glob(result_dir+"/spotify_favorites*.txt")
     result_files = sorted(result_files, key=str.lower, reverse=True)
     return result_files
 
