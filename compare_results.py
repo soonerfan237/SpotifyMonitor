@@ -1,6 +1,7 @@
 import ast
 import glob
 from pathlib import Path
+import read_config
 
 def get_result_files(result_dir):
     result_files = glob.glob(result_dir+"/spotify_favorites*.txt")

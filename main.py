@@ -31,7 +31,7 @@ else:
     missing_songs = compare_results.deduplicate_list(missing_songs)
     missing_songs = compare_results.ignore_results(missing_songs)
 
-    contents = send_results.send_results(missing_songs, start_time)
+    contents = send_results.email_results(missing_songs, start_time)
 
     print(contents)
     print("Done")

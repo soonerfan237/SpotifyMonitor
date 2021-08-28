@@ -31,3 +31,27 @@ def get_secret():
         except yaml.YAMLError as exc:
             print(exc)
     return secret
+
+def get_sender_email_address():
+    with open("configuration.yaml", 'r') as stream:
+        try:
+            secret = yaml.safe_load(stream)["SENDER_EMAIL_ADDRESS"]
+        except yaml.YAMLError as exc:
+            print(exc)
+    return secret
+
+def get_sender_email_password():
+    with open("configuration.yaml", 'r') as stream:
+        try:
+            secret = yaml.safe_load(stream)["SENDER_EMAIL_PASSWORD"]
+        except yaml.YAMLError as exc:
+            print(exc)
+    return secret
+
+def get_recipient_email_address():
+    with open("configuration.yaml", 'r') as stream:
+        try:
+            secret = yaml.safe_load(stream)["RECIPIENT_EMAIL_ADDRESS"]
+        except yaml.YAMLError as exc:
+            print(exc)
+    return secret
