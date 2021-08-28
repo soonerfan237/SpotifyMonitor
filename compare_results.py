@@ -1,7 +1,5 @@
 import ast
 import glob
-from pathlib import Path
-import read_config
 
 def get_result_files(result_dir):
     result_files = glob.glob(result_dir+"/spotify_favorites*.txt")
@@ -32,15 +30,14 @@ def compare_results(new_result_file, old_result_file):
 
 def ignore_results(missing_songs):
     missing_songs_without_ignored = []
-    if Path("ignore_song_list.txt").is_file():
-        ignore_song_list = read_results("ignore_song_list.txt")
-        for missing_song in missing_songs:
-            ignore = 0
-            for ignore_song in ignore_song_list:
-                if missing_song["song_name"] == ignore_song["song_name"] and missing_song["artist_name"] == ignore_song["artist_name"]:
-                    ignore = 1
-            if ignore == 0:
-                missing_songs_without_ignored.append(missing_song)
+    ignore_song_list = read_results("ignore_song_list.txt")
+    for missing_song in missing_songs:
+        ignore = 0
+        for ignore_song in ignore_song_list:
+            if missing_song["song_name"] == ignore_song["song_name"] and missing_song["artist_name"] == ignore_song["artist_name"]:
+                ignore = 1
+        if ignore == 0:
+            missing_songs_without_ignored.append(missing_song)
     return missing_songs_without_ignored
 
 def deduplicate_list(missing_songs):

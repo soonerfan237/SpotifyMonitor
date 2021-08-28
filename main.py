@@ -2,24 +2,18 @@
 import datetime
 import get_playlist_tracks
 import write_results
-import read_config
 import compare_results
 import send_results
-from pathlib import Path
+import setup
 
-if not Path("configuration.yaml").is_file():
-    print("Missing configuration.yaml.")
-else:
+result_dir = "results"
+ignore_song_file = "ignore_song_list.txt"
+
+if setup.setup_check(result_dir, ignore_song_file):
+
     start_time = datetime.datetime.now()
 
-    result_dir = "results"
-
-    user_id = read_config.get_user_id()
-    playlist_id = read_config.get_playlist_id()
-    cid = read_config.get_cid()
-    secret = read_config.get_secret()
-
-    spotify_playlist_songs = get_playlist_tracks.get_playlist_tracks(user_id, playlist_id, cid, secret)
+    spotify_playlist_songs = get_playlist_tracks.get_playlist_tracks()
 
     write_results.write_results(spotify_playlist_songs, result_dir)
 

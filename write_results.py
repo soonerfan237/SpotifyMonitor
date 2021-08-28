@@ -1,10 +1,6 @@
 import datetime
-import os
 
 def write_results(spotify_playlist_songs, result_dir):
-
-    if not os.path.exists(result_dir):
-        os.makedirs(result_dir)
 
     output_file = open(result_dir+"/spotify_favorites_" + str(datetime.date.today()) + ".txt", "w")
 

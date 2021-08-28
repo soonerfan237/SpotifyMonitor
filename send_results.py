@@ -1,9 +1,6 @@
-#TODO: email results of missing songs
 import datetime
 import smtplib
-
 import read_config
-
 
 def format_results(missing_songs, start_time):
     processing_time = datetime.datetime.now() - start_time
