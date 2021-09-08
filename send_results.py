@@ -14,7 +14,7 @@ def format_results(missing_songs, start_time):
 def email_results(missing_songs, start_time):
     sent_from = "From: " + read_config.get_sender_email_address() + "\n"
     sent_to = "To: " + read_config.get_recipient_email_address() + "\n"
-    subject = "Subject: Spotify Missing Songs Report\n"
+    subject = "Subject: Spotify Missing Songs Report\n\n"
     body = format_results(missing_songs, start_time)
     email_text = sent_from + sent_to + subject + body
     print(email_text)
@@ -24,7 +24,5 @@ def email_results(missing_songs, start_time):
         server.login(read_config.get_sender_email_address(), read_config.get_sender_email_password())
         server.sendmail(sent_from, sent_to, email_text)
         server.close()
-
-        print("Email sent!")
     except:
         print("Something went wrong with email.")
