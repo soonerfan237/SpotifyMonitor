@@ -22,8 +22,8 @@ def compare_results(new_result_file, old_result_file):
     for old_song in old_result:
         found_match = 0
         for new_song in new_result:
-            if old_song["song_name"] == new_song["song_name"] and old_song["artist_name"] == new_song["artist_name"]:
-                found_match = 1
+            if missing_song["song_name"] ==re.sub('[^a-zA-Z0-9-_*.]','', ignore_song["song_name"]).upper() and missing_song["artist_name"] ==re.sub('[^a-zA-Z0-9-_*.]','', ignore_song["artist_name"]).upper():
+                ignore = 1
         if found_match == 0:
             missing_songs.append(old_song.copy())
     return missing_songs
