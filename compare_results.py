@@ -1,5 +1,6 @@
 import ast
 import glob
+import re
 
 def get_result_files(result_dir):
     result_files = glob.glob(result_dir+"/spotify_favorites*.txt")
